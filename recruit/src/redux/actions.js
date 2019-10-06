@@ -9,7 +9,7 @@ import io from 'socket.io-client'
 
 function initIO(dispatch,userid){
    if(!io.socket){
-      io.socket = io('ws://localhost:3000')
+      io.socket = io('ws://172.27.35.2:3000')
       io.socket.on('receiveMsg',function(chatMsg){
          console.log('客户端接收服务器发送的消息',chatMsg)
          if(userid === chatMsg.from || userid === chatMsg.to){

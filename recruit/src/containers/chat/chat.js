@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {NavBar,List,InputItem,Grid,Icon} from 'antd-mobile'
 import {sendMsg,readMsg} from '../../redux/actions'
-import QueueAnim from 'rc-queue-anim'
 const Item = List.Item
 
 class Chat extends Component {
@@ -34,7 +33,7 @@ class Chat extends Component {
         const to = this.props.user._id
         this.props.readMsg(from,to)
     }
-    toogleShow = () => {
+    toggleShow = () => {
         const isShow = !this.state.isShow
         this.setState({
             isShow
@@ -109,7 +108,7 @@ class Chat extends Component {
                         onFocus={()=>this.setState({isShow:false})}
                         extra={
                             <span>
-                                <span onClick={this.toogleShow} style={{marginRight:5}}>🙂</span>
+                                <span onClick={this.toggleShow} style={{marginRight:5}}>🙂</span>
                                 <span onClick={this.handleSend}>发送</span>
                             </span>
                         }
@@ -118,7 +117,7 @@ class Chat extends Component {
                         <Grid 
                             data={this.emojis}
                             columnNum={8}
-                            carouseMaxRow={4}
+                            carouselMaxRow={4}
                             isCarousel={true}
                             onClick={(item)=>{
                                 this.setState({content:this.state.content + item.text})

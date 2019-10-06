@@ -60,8 +60,7 @@ class Main extends Component {
          this.props.getUser()
       }
    }
-
-
+  
    render(){
       const userid = Cookies.get('userid')
       if(!userid){
